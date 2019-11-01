@@ -67,8 +67,12 @@ class App
     end
 
     CLI::UI::Prompt.ask('What would you like to do?') do |handler|
-      handler.option('Go to Next Result')     { render_search_result(key, value, results, index + 1)}
-      handler.option('Go to Previous Result') { render_search_result(key, value, results, index - 1)}
+      unless (index + 1) == results.size
+        handler.option('Go to Next Result')     { render_search_result(key, value, results, index + 1)}
+      end
+      unless index == 0
+        handler.option('Go to Previous Result') { render_search_result(key, value, results, index - 1)}
+      end
       handler.option('Go to Main Menu')       { render_main_menu }
     end
   end
