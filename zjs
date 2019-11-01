@@ -1,3 +1,17 @@
 #!/usr/bin/env ruby
 
+require 'optparse'
+require_relative './app'
 
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: zjs [file.json]"
+end.parse!
+
+if ARGV.size == 0
+  puts "You must provider a path to a JSON file."
+elsif ARGV.size > 1
+  puts "You can only provide one path to a JSON file (you provided multiple)."
+end
+
+App.new(ARGV.first)

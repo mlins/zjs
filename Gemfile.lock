@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    awesome_print (1.8.0)
     cli-ui (1.3.0)
     minitest (5.13.0)
     rake (13.0.0)
@@ -9,6 +10,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   cli-ui
   minitest
   rake

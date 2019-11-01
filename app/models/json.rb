@@ -10,7 +10,13 @@ module Models
     end
 
     def unique_keys
-      @data.map(&:keys).uniq.flatten
+      @data.map(&:keys).flatten.uniq
+    end
+
+    def search(key, value)
+      @data.select do |object|
+        object[key] == value
+      end
     end
   end
 end

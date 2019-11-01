@@ -28,5 +28,15 @@ module Models
     def test_unique_keys
       assert_equal ["key"], @json.unique_keys
     end
+
+    def test_search_with_results
+      results = @json.search("key", "value")
+      assert_equal @json.data, results
+    end
+
+    def test_search_no_results
+      results = @json.search("key", "missing")
+      assert_equal [], results
+    end
   end
 end
